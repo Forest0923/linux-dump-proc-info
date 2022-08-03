@@ -39,6 +39,7 @@ static int dump_proc_info_init(void)
 	dump_tls(tsk);
 	dump_files(tsk);
 	dump_ids(tsk);
+	dump_pgd(tsk);
 	return 0;
 err:
 	return 1;
