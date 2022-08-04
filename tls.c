@@ -14,6 +14,6 @@ void dump_tls(struct task_struct *tsk)
 			arr[i].s, arr[i].dpl, arr[i].p, arr[i].limit1, arr[i].avl, \
 			arr[i].l, arr[i].d, arr[i].g, arr[i].base2);
 	}
-	pr_info("dump_proc_tls: => fsbase = 0x%lx", t->fsbase);
-	pr_info("dump_proc_tls: => gsbase = 0x%lx", t->gsbase);
+	pr_info("dump_proc_tls: => fsbase = 0x%lx\n", t->fsbase);
+	pr_info("dump_proc_tls: => gsbase = 0x%lx\n", t->gsbase);
 }
