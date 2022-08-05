@@ -14,7 +14,7 @@ make
 
 ## Usage
 
-- Specify apprication
+- Specify application
 
 ```sh
 make test_proc APP=[name]
