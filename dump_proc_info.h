@@ -7,6 +7,8 @@ void dump_files(struct task_struct *tsk);
 /* task_struct.c */
 void dump_ids(struct task_struct *tsk);
 void dump_pgd(struct task_struct *tsk);
+void dump_mm_params(struct task_struct *tsk);
+void dump_tsk_vma(struct task_struct *tsk);
 
 /* syscall.c */
 void check_sys_clone(void);

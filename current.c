@@ -10,4 +10,5 @@ void dump_current(void)
 
 	pr_info("dump_proc_current: => cr3	= 0x%lx\n", cr3);
 	dump_pgd(tsk);
+	dump_tsk_vma(tsk);
 }

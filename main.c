@@ -25,7 +25,7 @@ static struct task_struct *search_task_struct_by_pid(int pid)
 	return tsk;
 }
 
-static int dump_proc_info_init(void)
+static int __init dump_proc_info_init(void)
 {
 	struct task_struct *tsk	= NULL;
 
@@ -44,6 +44,8 @@ static int dump_proc_info_init(void)
 	dump_files(tsk);
 	dump_ids(tsk);
 	dump_pgd(tsk);
+	dump_mm_params(tsk);
+	dump_tsk_vma(tsk);
 	return 0;
 
 current_info:
@@ -55,7 +57,7 @@ err:
 	return 1;
 }
 
-static void dump_proc_info_exit(void)
+static void __exit dump_proc_info_exit(void)
 {
 	return;
 }
