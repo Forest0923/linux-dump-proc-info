@@ -40,11 +40,11 @@ static int __init dump_proc_info_init(void)
 		goto err;
 	}
 
-	dump_tls(tsk);
-	dump_files(tsk);
-	dump_ids(tsk);
-	dump_pgd(tsk);
-	dump_mm_params(tsk);
+	//dump_tls(tsk);
+	//dump_files(tsk);
+	//dump_ids(tsk);
+	//dump_pgd(tsk);
+	//dump_mm_params(tsk);
 	dump_tsk_vma(tsk);
 	return 0;
 
