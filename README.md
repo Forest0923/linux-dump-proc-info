@@ -1,6 +1,6 @@
 # linux-dump-proc-info
 
-This is a simple LKM to dump processe information.
+This is a simple LKM to dump process information.
 
 Tested on Linux v5.8.13, v5.17.
 

@@ -16,6 +16,7 @@ get_target_pid() {
 		else
 			target_pid=`pidof -s $pid_name || echo ""`
 		fi
+		echo "PID = $target_pid"
 
 		if echo $target_pid | grep "^\s*[0-9]\+\s*$" >/dev/null ; then
 			break
@@ -45,7 +46,10 @@ dump_objects() {
 					((obj_mask=$obj_mask|0x10)) ;;
 			esac
 		done
-		make -C src/ dump_objects PID=$1 OBJ_MASK=$obj_mask
+		if [ $obj_mask == 0 ]; then
+			continue
+		fi
+		make -s -C src/ dump_objects PID=$1 OBJ_MASK=$obj_mask UPTIME=`sudo cat /proc/uptime | awk '{print $1}'`
 
 		menu=('Rerun' 'Reconf' 'Quit')
 		list_input "Next action:" menu action
@@ -61,7 +65,7 @@ va2pa() {
 	while [ true ]; do
 		text_input "" addr
 		if echo "$addr" | grep "^0x[0-9a-fA-F]\+$" > /dev/null ; then
-			make -C src/ va2pa PID=$1 ADDR=$addr
+			make -s -C src/ va2pa PID=$1 ADDR=$addr UPTIME=`sudo cat /proc/uptime | awk '{print $1}'`
 		fi
 		if [ "$addr" == "quit" -o "$addr" == "q" -o "$addr" == "exit" ]; then
 			break
